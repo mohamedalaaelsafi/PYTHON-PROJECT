@@ -14,6 +14,8 @@ DATE_REG = re.compile(
     r'^(\d{4})-(0[1-9]|1[0-2]|[1-9])-([1-9]|0[1-9]|[1-2]\d|3[0-1])$')
 project = []
 
+def deletecontent():
+    open('user_projects', 'w').close()
 
 def check_file_size(filename):
     if os.stat(filename).st_size == 0:
@@ -260,6 +262,8 @@ def searchbydate():
 
 
 def project_menu():
+    nv = str(f.newvalue())
+    move_user_projects(nv)
     ans = True
     while ans:
         print("""
